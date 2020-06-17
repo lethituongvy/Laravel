@@ -1,0 +1,37 @@
+html,
+body {
+    background-image: url('https://1.bp.blogspot.com/-RpGoJEOJuPE/XqGjd2-OnAI/AAAAAAAAijo/3Du2KYIRbBwyGbobDwlhJLhzuwhrswaOACLcBGAsYHQ/s1600/Hinh-anh-meo-ngau-nhat%2B%25283%2529.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background-color: #FFC312;
+    color: black;
+    border: 0 !important;
+}
+
+.remember {
+    color: white;
+}
+
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.login_btn {
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+}
+
+.login_btn:hover {
+    color: black;
+    background-color: white;
+}
