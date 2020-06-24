@@ -14,10 +14,8 @@
 		html,
 		body {
 			background-image: url('https://i.ytimg.com/vi/I5ixNZMqkBA/hqdefault.jpg');
-			background-size: cover;
-			background-repeat: no-repeat;
-			height: 100%;
-			font-family: 'Numans', sans-serif;
+			font-family: 'Roboto', sans-serif;
+            font-size: 16px;
 		}
 	</style>
 </head>
@@ -25,7 +23,7 @@
 <body>
 	<center>
 		<div class="card-body">
-			<form action="{{'/admin/animals/'.$edit->id}}" method="POST" enctype="multipart/form-data">
+			<form action="{{'/admin/product/'.$edit->id}}" method="POST" enctype="multipart/form-data">
 				@csrf
 				@method("PATCH")
 				<!-- <button type="submit">Update</button> -->
@@ -33,13 +31,24 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-user"></i></span>
 					</div>
-					<input type="text" name="title" value="{{$edit->title}}">
+					<input type="text" name="name" value="{{$edit->name}}">
 				</div>
 				<div class="input-group form-group">
 					<div class="input-group-prepend">
-						<span class="input-group-text"><i class="far fa-prescription"></i></span>
+						<span class="input-group-text"><i class="far fa-image"></i></span>
 					</div>
-					<input type="text" name="description" value="{{$edit->description}}">
+					<input type="file" name="image">
+				</div>
+				<div class="form-group">
+					<label for="category" style="float: left; font-size: 18px;"> Chọn loại sản phẩm</label><br>
+					<select name="category" id="category" class="form-control">
+						@foreach($categories as $category)
+						<option value="{{$category->id}}"> {{$category->name}}</option>
+						@endforeach
+					</select>
+					@error('category')
+					<div class="alert alert-success">{{ $message }}</div>
+					@enderror
 				</div>
 				<div class="input-group form-group">
 					<div class="input-group-prepend">
@@ -49,16 +58,29 @@
 				</div>
 				<div class="input-group form-group">
 					<div class="input-group-prepend">
-						<span class="input-group-text"><i class="far fa-image"></i></span>
+						<span class="input-group-text"><i class="fas fa-usd-square"></i></span>
 					</div>
-					<input type="file" name="image">
+					<input type="text" name="oldprice" value="{{$edit->oldprice}}">
 				</div>
+				<div class="input-group form-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"><i class="far fa-description"></i></span>
+					</div>
+					<input type="text" name="description" value="{{$edit->description}}">
+				</div>
+				<div class="input-group form-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"><i class="fas fa-usd-square"></i></span>
+					</div>
+					<input type="text" name="quantity" value="{{$edit->quantity}}">
+				</div>
+
 				<div class="row align-items-center remember">
 					<input type="checkbox">Remember Me
 				</div>
-					<div class="form-group">
-						<input type="submit" value="Update" class="btn float-right login_btn">
-					</div>
+				<div class="form-group">
+					<input type="submit" value="Update" class="btn float-right login_btn">
+				</div>
 			</form>
 		</div>
 	</center>

@@ -10,13 +10,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="js/jquery-1.11.1.min.js"></script>
     <style>
-        /* #id{ */
-
-        /* display: grid; */
-        /* grid-template-columns: 350px 350px 350px 350px; */
-        /* grid-gap: 20px;
-            width: 100%; */
-        /* } */
+        #id {
+            display: grid;
+            grid-template-columns: 350px 350px 350px 350px;
+            grid-gap: 20px;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -28,13 +27,13 @@
         <div id="id">
             @foreach ($research as $search)
             <div class="container">
-                <div class="row" style="display:flex;">
+                <div class="row">
                     <div class="col-md-4">
                         <div class="thumbnail">
                             <img class="group list-group-image" src="{{'/storage/'.$search->image}}" alt="Card image cap">
                             <center>
                                 <div class="caption">
-                                    <h5 class="card-title"> {{ $search->title}} </h5>
+                                    <h5 class="card-title"> {{ $search->name}} </h5>
                                     <p class="card-text"> <span>{{ $search->price }} $ </span> </p>
 
                                     <div class="row">
@@ -59,7 +58,7 @@
         </div>
     </form>
     <div>
-    @include('partials\footer')
+        @include('partials\footer')
     </div>
 </body>
 

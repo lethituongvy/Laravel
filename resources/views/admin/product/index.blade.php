@@ -29,17 +29,21 @@
         <table border="1px;" height="10px;">
             <tr>
                 <th>Name</th>
+                <th>Categoty</th>
                 <th>Desciption</th>
                 <th>Price</th>
+                <th>Old price</th>
                 <th>Image</th>
                 <th>DELETE</th>
                 <th>EDIT</th>
             </tr>
-            @foreach($display as $data)
+            @foreach($animals as $data)
             <tr>
-                <td>{{$data -> title}}</td>
+                <td>{{$data -> name}}</td>
+                <td>{{$data->category->name}}</td>
                 <td>{{$data -> description}}</td>
                 <td>{{$data -> price}}</td>
+                <td>{{$data -> oldprice}}</td>
                 <td><img src="{{'/storage/'. $data->image }}" alt=""></td>
                 <td>
                     <form action="{{'/admin/'.$data->id}}" method="POST">
@@ -49,7 +53,7 @@
                     </form>
                 </td>
                 <td>
-                    <form action="{{'/admin/animals/'.$data->id.'/edit'}}" method="GET">
+                    <form action="{{'/admin/product/'.$data->id.'/edit'}}" method="GET">
                         <button type="submit">EDIT</button>
                     </form>
                 </td>
@@ -59,7 +63,7 @@
         </table>
     </center>
     <center>
-        <form action="/admin/animals/create" method="GET">
+        <form action="/admin/product/create" method="GET">
             @csrf
             <button type="submit">INSERT</button>
         </form>

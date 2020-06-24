@@ -27,20 +27,24 @@
     <center>
         <table border="1px;" height="10px;">
             <tr>
+                <th>Name</th>
+                <th>Name</th>
                 <th>User</th>
                 <th>Password</th>
                 <th>Name</th>
-                <th>Class</th>
-                <th>Role</th>
+                <th>Name</th>
+                <th>Name</th>
                 <th>DELETE</th>
                 <th>EDIT</th>
             </tr>
-            @foreach($show as $datas)
+            @foreach($animals as $datas)
             <tr>
+                <td>{{$datas -> name}}</td>
+                <td>{{$datas -> birth}}</td>
                 <td>{{$datas -> username}}</td>
                 <td>{{$datas -> password}}</td>
-                <td>{{$datas -> name}}</td>
-                <td>{{$datas -> class}}</td>
+                <td>{{$datas -> email}}</td>
+                <td>{{$datas -> phone}}</td>
                 <td>{{$datas -> role}}</td>
                 <td>
                     <form action="{{'/admin/users/'.$datas->id}}" method="POST">
@@ -50,7 +54,7 @@
                     </form>
                 </td>
                 <td>
-                    <form action="{{'/admin/users/'.$datas->id.'/edit'}}" method="GET">
+                    <form action="{{'/users/'.$datas->id.'/edit'}}" method="GET">
                         <button type="submit">EDIT</button>
                     </form>
                 </td>

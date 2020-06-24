@@ -77,7 +77,7 @@
                                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mèo cảnh</i><span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="#"> Chó cảnh</a></li>
-                                        <li><a href="Home/hoasukien.php"> Mèo cảnh</a></li>
+                                        <!-- <li><a href="Home/hoasukien.php"> Mèo cảnh</a></li>
                                         <li><a href="Home/hoacuoi.php"> Bán chó cảnh</a></li>
                                         <li><a href="Home/hoakhaitruong.php"> Bán mèo cảnh</a></li>
                                         <li><a href="Home/hoachiabuon.php"> Shop phụ kiện</a></li>
@@ -85,7 +85,7 @@
                                         <li><a href="Home/hoatinhyeu.php"> Thú kiểng</a></li>
                                         <li><a href="Home/hoatinhyeu.php"> Tin tức</a></li>
                                         <li><a href="Home/hoatinhyeu.php"> Facebook</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Youtube</a></li>
+                                        <li><a href="Home/hoatinhyeu.php"> Youtube</a></li> -->
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Bán chó cảnh</i><span class="caret"></span></a>
@@ -257,7 +257,7 @@
                             <img class="group list-group-image" src="{{'storage/'.$product->image}}" alt="Card image cap">
                             <center>
                                 <div class="caption">
-                                    <h5 class="card-title"> {{ $product->title}} </h5>
+                                    <h5 class="card-title"> {{ $product->name}} </h5>
                                     <p class="card-text"> <span>{{ $product->price }} $ </span> </p>
 
                                     <div class="row">
@@ -266,8 +266,6 @@
                                                 <button type="submit" class="btn btn-warning">Add to cart</button>
                                             </form>
                                         </div>
-
-
                                         <div class="col-xs-6 col-md-6">
                                             <form action="/user/animals/show/{{ $product->id }}">
                                                 <button type="submit" class="btn btn-warning">Detail</button>

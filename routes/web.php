@@ -28,31 +28,46 @@ Route::get('/auth/register',"Auth\RegisterController@index")->name('auth.registe
 Route::post('/auth/register',"Auth\RegisterController@register");
 
 //show trang admin
-Route::get('/admin/dashboard',"Admin\DashboardController@index")->name('admin.dashboard');
+Route::get('/admin/dashboard',"Admin\ProductController@index")->name('admin.dashboard');
 
 // show trang quan li users
-Route::get('/admin/users/index',"Admin\DashboardController@indexU")->name('admin.users.indexU');
+Route::get('/admin/users/index',"Admin\ProductController@indexU")->name('admin.users.indexU');
 
 //delete users
 Route::delete('/admin/users/{id}',"User\HomeController@destroy");
  
 //edit users
-Route::get('/admin/users/{id}/edit',"Admin\DashboardController@editU");
-Route::PATCH('/admin/users/{id}',"Admin\DashboardController@updateU");
+Route::get('/users/{id}/edit',"User\HomeController@edit");
+Route::PATCH('/users/{id}',"User\HomeController@update");
 
-// show trang quan li animals
-Route::get('/admin/animals/index',"Admin\DashboardController@indexP")->name('admin.users.indexP');
+// show trang quan li product
+Route::get('/admin/product/index',"Admin\ProductController@indexP")->name('admin.product.indexP');
 
 //delete product 
-Route::delete('/admin/{id}',"Admin\DashboardController@destroy");
+Route::delete('/admin/{id}',"Admin\ProductController@destroy");
 
 //insert product
-Route::post('/admin/animals',"Admin\DashboardController@store");
-Route::get('/admin/animals/create',"Admin\DashboardController@create");
+Route::post('/admin/product',"Admin\ProductController@store");
+Route::get('/admin/product/create',"Admin\ProductController@create");
 
 //edit products
-Route::get('/admin/animals/{id}/edit',"Admin\DashboardController@edit");
-Route::PATCH('/admin/animals/{id}',"Admin\DashboardController@update");
+Route::get('/admin/product/{id}/edit',"Admin\ProductController@edit");
+Route::PATCH('/admin/product/{id}',"Admin\ProductController@update");
+
+//show trang quan li category
+Route::get('/admin/category/index',"Admin\CategoryController@index")->name('admin.category.index');
+
+// insert category
+Route::post('/admin/category',"Admin\CategoryController@store");
+Route::get('/admin/category/create',"Admin\CategoryController@create");
+
+//delete category
+Route::delete('/admin/{id}',"Admin\CategoryController@destroy");
+
+//edit category
+Route::get('/admin/category/{id}/edit',"Admin\CategoryController@edit");
+Route::PATCH('/admin/category/{id}',"Admin\CategoryController@update");
+
 
 // show trang user
 Route::get('/home',"User\HomeController@index")->name('home');

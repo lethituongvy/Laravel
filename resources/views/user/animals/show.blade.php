@@ -32,7 +32,7 @@
         </center>
         <div style="border: 1px solid #66CBFF">
             <center>
-                <h5 class="card-title">Tên: {{$show->title}}</h5>
+                <h5 class="card-title">Tên: {{$show->name}}</h5>
                 <hr>
 
                 <h5 class="card-title">Giá: {{$show->price}}$</h5>
