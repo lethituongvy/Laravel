@@ -15,14 +15,15 @@ class RegisterController extends Controller
         return view("auth.register");
     }
     function register(Request $request)
-    {
+    {    $name = $request->name;
         $username = $request->username;
         $password = $request->password;
-        $name = $request->name;
-        $class = $request->class;
+        $birth = $request->birth;
+        $email = $request->email;
+        $phone = $request->phone;
         $role = $request->role;
         $hashPassword = Hash::make($password);
-        DB::table('users')->insert(["username" => $username, "password" => $hashPassword, "name" => $name, "class" => $class, "role" => $role]);
+        DB::table('users')->insert([ "name" => $name,"username" => $username, "password" => $hashPassword, "birth" => $birth,"email" => $email,"phone" => $phone, "role" => $role]);
         return redirect('/auth/login');
     }
 }

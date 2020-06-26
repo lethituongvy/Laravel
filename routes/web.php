@@ -76,7 +76,8 @@ Route::get('/home',"User\HomeController@index")->name('home');
 Route::get('/user/animals/show/{id}',"User\HomeController@details");
 
 //hien thi gio hang
-Route::get('/user/cart/{id}',"User\HomeController@cart");
+Route::get('/user/cart',"User\HomeController@indexCart");
+Route::Post('/user/cart/{id}',"User\HomeController@addCart");
 
 // Search
  Route::get('/user/search',"User\HomeController@search");

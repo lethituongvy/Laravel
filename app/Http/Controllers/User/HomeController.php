@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -54,8 +55,9 @@ class HomeController extends Controller
     }
     function index()
     {
+        $categories = Category::all();
         $show = Product::all();
-        return view('user.home', ['products' => $show]);
+        return view('user.home', ['categories'=>$categories,'products' => $show]);
     }
     function details($id)
     {
@@ -66,7 +68,6 @@ class HomeController extends Controller
     {
         if (Auth::user()) {
             $idUser = Auth::user()->id;
-
             $cartdata = DB::table('carts')
                 ->where('user_id', '=', $idUser)
                 ->join('users', 'users.id', '=', 'carts.user_id')

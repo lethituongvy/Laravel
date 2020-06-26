@@ -41,6 +41,7 @@
             margin: auto;
             line-height: 0.5px;
             border: 1px solid #66CBFF;
+            margin-top: 20px;
         }
 
         .navbar nav navbar-nav {
@@ -55,6 +56,12 @@
             /* display: grid; */
             grid-template-columns: 150px 150px;
             grid-gap: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
         }
     </style>
 </head>
@@ -71,96 +78,11 @@
                 <div class="row">
                     <center>
                         <nav class="navbar">
-                            <ul class=" nav navbar-nav" id="menu">
-                                <li><a href="#">Menu</i></a>
-                                </li>
-                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mèo cảnh</i><span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"> Chó cảnh</a></li>
-                                        <!-- <li><a href="Home/hoasukien.php"> Mèo cảnh</a></li>
-                                        <li><a href="Home/hoacuoi.php"> Bán chó cảnh</a></li>
-                                        <li><a href="Home/hoakhaitruong.php"> Bán mèo cảnh</a></li>
-                                        <li><a href="Home/hoachiabuon.php"> Shop phụ kiện</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Dịch vụ</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Thú kiểng</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Tin tức</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Facebook</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Youtube</a></li> -->
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Bán chó cảnh</i><span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"> Chó cảnh</a></li>
-                                        <li><a href="Home/hoasukien.php"> Mèo cảnh</a></li>
-                                        <li><a href="Home/hoacuoi.php"> Bán chó cảnh</a></li>
-                                        <li><a href="Home/hoakhaitruong.php"> Bán mèo cảnh</a></li>
-                                        <li><a href="Home/hoachiabuon.php"> Shop phụ kiện</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Dịch vụ</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Thú kiểng</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Tin tức</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Facebook</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Youtube</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Bán mèo cảnh</i><span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"> Chó cảnh</a></li>
-                                        <li><a href="Home/hoasukien.php"> Mèo cảnh</a></li>
-                                        <li><a href="Home/hoacuoi.php"> Bán chó cảnh</a></li>
-                                        <li><a href="Home/hoakhaitruong.php"> Bán mèo cảnh</a></li>
-                                        <li><a href="Home/hoachiabuon.php"> Shop phụ kiện</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Dịch vụ</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Thú kiểng</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Tin tức</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Facebook</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Youtube</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Shop phụ kiện</i><span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"> Chó cảnh</a></li>
-                                        <li><a href="Home/hoasukien.php"> Mèo cảnh</a></li>
-                                        <li><a href="Home/hoacuoi.php"> Bán chó cảnh</a></li>
-                                        <li><a href="Home/hoakhaitruong.php"> Bán mèo cảnh</a></li>
-                                        <li><a href="Home/hoachiabuon.php"> Shop phụ kiện</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Dịch vụ</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Thú kiểng</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Tin tức</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Facebook</a></li>
-                                        <li><a href="Home/hoatinhyeu.php"> Youtube</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Thú cưng đang bán<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"> Bò sát cảnh</a></li>
-                                        <li><a href="Home/hoasukien.php"> chim cảnh</a></li>
-                                        <li><a href="Home/hoacuoi.php"> Chuột Hamster</a></li>
-                                        <li><a href="Home/hoakhaitruong.php">Cá cảnh</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">DỊCH VỤ<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"> Trông giữ thú</a></li>
-                                        <li><a href="Home/hoasukien.php">Bệnh viện thú y</a></li>
-                                        <li><a href="Home/hoacuoi.php">Phối giống chó mèo</a></li>
-                                        <li><a href="Home/hoakhaitruong.php">Spa & Grooming</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> THÚ KIỂNG<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"> Bò sát cảnh</a></li>
-                                        <li><a href="Home/hoasukien.php"> chim cảnh</a></li>
-                                        <li><a href="Home/hoacuoi.php"> Chuột Hamster</a></li>
-                                        <li><a href="Home/hoakhaitruong.php">Cá cảnh</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> TIN TỨC<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"> Tin tức thú cưng</a></li>
-                                        <li><a href="#">Hoạt động Dogily petshop</a></li>
-                                    </ul>
-                                </li>
-                                <br>
+                            <h1>MENU</h1>
+                            <ul class="nav navbar-nav" id="menu">
+                                @foreach($categories as $cate)
+                                <li class="nav-item">{{$cate->name}}</li>
+                                @endforeach
                                 <li class="dropdown"><a href="#"> <i class="fab fa-facebook-square"></i></a>
                                 </li>
                                 <li class="dropdown"><a href="#"><i class="fab fa-youtube"></i></a>
@@ -262,7 +184,9 @@
 
                                     <div class="row">
                                         <div class="col-xs-6  col-md-6">
-                                            <form action="/user/cart/{{$product->id}}">
+
+                                            <form action="/user/cart/{{$product->id}}" method="POST">
+                                                @csrf
                                                 <button type="submit" class="btn btn-warning">Add to cart</button>
                                             </form>
                                         </div>
