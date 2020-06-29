@@ -26,7 +26,7 @@ class ProductController extends Controller
     }
     function header(){
         $cate = Category::all();
-        return view('user.home',['category'=>$cate]);   
+        return view('partials.header',['category'=>$cate]);   
     }
     function create()
     {

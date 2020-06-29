@@ -67,11 +67,7 @@ class HomeController extends Controller
     //     $show = Product::all();
     //     return view('user.home', ['categories' => $categories, 'products' => $show]);
     // }
-    function productCate($id){
-        $cate = Category::all();
-        $procate = DB::table('products')->where('category_id','=',$id)->get();
-        return view('user.category.displayProductCate',["productcategory" => $procate,"categories"=>$cate]);
-       }
+   
     function index(Request $request)
     {
         $page = $request->page;
@@ -155,6 +151,4 @@ class HomeController extends Controller
         $search = DB::table('products')->where('name', 'LIKE', '%' . $txt . '%')->get();
         return view('user.search', ['research' => $search]);
     }
-   
-    
 }

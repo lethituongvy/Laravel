@@ -173,8 +173,8 @@
                     <nav class="navbar">
                         <h4>TRANG CHỦ</h4>
                         <div>
-                            <!-- <h4>DANH MỤC SẢN PHẨM</h4>
-                            -->
+                            <h4>DANH MỤC SẢN PHẨM</h4>
+                            
                         </div>
                         <h4>Liên hệ</h4>
                     </nav>
