@@ -69,18 +69,22 @@ Route::get('/admin/category/{id}/edit',"Admin\CategoryController@edit");
 Route::PATCH('/admin/category/{id}',"Admin\CategoryController@update");
 
 
-// show trang user
+// USERS
 Route::get('/home',"User\HomeController@index")->name('home');
 
-// show chi tiet cho người dùng
+// DETAILS
 Route::get('/user/animals/show/{id}',"User\HomeController@details");
 
-//hien thi gio hang
+//CART
 Route::get('/user/cart',"User\HomeController@indexCart");
 Route::Post('/user/cart/{id}',"User\HomeController@addCart");
+Route::get('/user/cart/{id}/increase',"User\HomeController@increase");
+Route::get('/user/cart/{id}/crease',"User\HomeController@crease");
+Route::delete('/user/cart/{id}',"User\HomeController@delete");
 
 // Search
  Route::get('/user/search',"User\HomeController@search");
 
+ Route::get('/home/productOfCate/{id}', 'User\HomeController@productCate');
 
-
+ Route::get('/header','Admin\ProductController@header');

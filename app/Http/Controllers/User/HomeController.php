@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Product;
+use App\Cart;
 
 class HomeController extends Controller
 {
     // function index(){
     //     return view("user.home");
     // }
+
     function logout()
     {
         Auth::logout();
@@ -31,6 +33,12 @@ class HomeController extends Controller
         $user = User::find($id);
         // $categories = Category::all();
         return view('admin.users.edit', ['edit' => $user]);
+    }
+    function delete($id)
+    {
+        $cart = Cart::find($id);
+        $cart->delete();
+        return redirect('/user/cart');
     }
     function update(Request $request, $id)
     {
@@ -53,11 +61,32 @@ class HomeController extends Controller
         $animal->save();
         return redirect('/admin/users/index');
     }
-    function index()
+    // function index()
+    // {
+    //     $categories = Category::all();
+    //     $show = Product::all();
+    //     return view('user.home', ['categories' => $categories, 'products' => $show]);
+    // }
+    function productCate($id){
+        $cate = Category::all();
+        $procate = DB::table('products')->where('category_id','=',$id)->get();
+        return view('user.category.displayProductCate',["productcategory" => $procate,"categories"=>$cate]);
+       }
+    function index(Request $request)
     {
-        $categories = Category::all();
-        $show = Product::all();
-        return view('user.home', ['categories'=>$categories,'products' => $show]);
+        $page = $request->page;
+        $category = Category::all();
+        $products = Product::all()->skip($page * 4)->take(4);
+        if($products->isEmpty()){ //Nếu photo lớn hơn số lượng trong database sẽ trả về 0
+                $products = Product::all()->take(4);
+            return redirect('home/?page=0');
+        }else if($page<0){
+            $totalPage = round(count(Product::all())/5)-1;
+            return redirect('home/?page='.$totalPage);
+        }
+
+        return view('user.home', ["products" => $products, "categories"=>$category, "page" => $page]);
+        
     }
     function details($id)
     {
@@ -98,17 +127,34 @@ class HomeController extends Controller
                 ->where('product_id', $id)
                 ->where('user_id', $idUser)
                 ->update(["quantity" => $quantity]);
-            return redirect()->route('home', ["carts" => "Thêm vào giỏ hàng Thành Công"]);
+            return redirect()->route('home', ["carts" => "Thành Công"]);
         } else {
             DB::table('carts')->insert(["product_id" => $id, "quantity" => 1, "user_id" => $idUser]);
-            return redirect()->route('home', ["carts" => "Thêm vào giỏ hàng Thành Công"]);
+            return redirect()->route('home', ["carts" => "Thành Công"]);
         }
     }
-
+    function increase($id)
+    {
+        $cart = Cart::find($id);
+        $quantity = $cart->quantity + 1;
+        $cart->quantity = $quantity;
+        $cart->save();
+        return redirect('user/cart');
+    }
+    function crease($id)
+    {
+        $cart = Cart::find($id);
+        $quantity = $cart->quantity - 1;
+        $cart->quantity = $quantity;
+        $cart->save();
+        return redirect('user/cart');
+    }
     function search(Request $request)
     {
         $txt = $request->input('txtSearch');
         $search = DB::table('products')->where('name', 'LIKE', '%' . $txt . '%')->get();
         return view('user.search', ['research' => $search]);
     }
+   
+    
 }

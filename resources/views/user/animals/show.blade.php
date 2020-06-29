@@ -27,7 +27,7 @@
     <div id="display">
         <center>
             <div>
-                <img class="group list-group-image" src="{{'/storage/'.$show->image}}" alt="Card image cap">
+                <img class="group list-group-image" src="{{'/storage/'.$show->image}}" alt="Card image cap" height="200" width="300">
             </div>
         </center>
         <div style="border: 1px solid #66CBFF">
@@ -42,12 +42,13 @@
                         <h5 class="card-title">Số lượng:<span><input type="number" value="1" min="1" max="10"></span></h5>
                     </div>
                     <div class="col-xs-12 col-md-6">
-                        <form action="/user/cart/{{$show->id}}">
-                            <button type="submit" class="btn btn-warning">Add to Cart</button>
+                        <form action="/user/cart/{{$show->id}}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-warning">Add to cart</button>
                         </form>
                     </div>
                 </div>
-            </center> 
+            </center>
         </div>
     </div>
     <!-- <hr> -->

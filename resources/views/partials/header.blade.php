@@ -82,15 +82,45 @@
             list-style-type: none;
             margin-left: 20px;
         }
-        .navbar{
+
+        .navbar {
             display: flex;
             width: 100%;
             justify-content: space-between;
+            margin-top: auto;
         }
-        .nav-item{
-            color: white;
-            margin-top: 15px;
-            font-size: 20px;
+
+        .menu li:hover .sub-menu {
+            z-index: 1;
+            opacity: 1;
+        }
+
+        .sub-menu {
+            width: 160%;
+            padding: 5px 0px;
+            position: absolute;
+            top: 100%;
+            left: 0px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity linear 0.15s;
+            box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+            background: #2e2728;
+        }
+
+        .sub-menu li {
+            display: block;
+            font-size: 16px;
+        }
+
+        .sub-menu li a {
+            padding: 10px 30px;
+            display: block;
+        }
+
+        .sub-menu li a:hover,
+        .sub-menu .current-item a {
+            background: #3e3436;
         }
     </style>
 
@@ -115,7 +145,9 @@
                 <h4 style="color: #D8D840;">Hỗ trợ khách hàng</h4>
             </div>
             <div style="margin:auto ; display:flex">
-                <h4 style="color: #D8D840;">Giỏ hàng</h4>
+                <a href="{{'/user/cart'}}">
+                    <h4 style="color: #D8D840;">Giỏ hàng</h4>
+                </a>
                 <img src="https://dogily.vn/wp-content/uploads/2019/10/gio-hang.png" alt="">
             </div>
             <div style="margin:auto; display:flex">
@@ -127,8 +159,7 @@
                     </span> </h3>
                 @else
                 <form action="/auth/login">
-                    <button type="submit">Login</button>
-                </form>
+                    <button type="submit">Login</button> </form>
                 <form action="/auth/register">
                     <button type="submit">Register</button>
                 </form>
@@ -138,16 +169,14 @@
         <div class="container-fluid">
             <div class="row">
                 <center>
-                    <nav class="navbar navbar-inverse">
-                        <ul class="nav navbar-nav" id="menu">
-                            @foreach($categories as $cate)
-                            <li class="nav-item">{{$cate->name}}</li>
-                            @endforeach
-                            <li class="dropdown"><a href="#"> <i class="fab fa-facebook-square"></i></a>
-                            </li>
-                            <li class="dropdown"><a href="#"><i class="fab fa-youtube"></i></a>
-                            </li>
-                        </ul>
+
+                    <nav class="navbar">
+                        <h4>TRANG CHỦ</h4>
+                        <div>
+                            <!-- <h4>DANH MỤC SẢN PHẨM</h4>
+                            -->
+                        </div>
+                        <h4>Liên hệ</h4>
                     </nav>
                 </center>
             </div>

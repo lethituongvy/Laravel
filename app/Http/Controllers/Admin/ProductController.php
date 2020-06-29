@@ -24,6 +24,10 @@ class ProductController extends Controller
         $animal = User::all();
         return view('admin.users.index', ['animals' => $animal]);
     }
+    function header(){
+        $cate = Category::all();
+        return view('user.home',['category'=>$cate]);   
+    }
     function create()
     {
         $categories = Category::all();
@@ -82,4 +86,5 @@ class ProductController extends Controller
         $animal->save();
         return redirect('/admin/product/index');
     }
+   
 }

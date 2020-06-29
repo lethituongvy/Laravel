@@ -29,10 +29,10 @@
 
         #id {
             display: grid;
-            grid-template-columns: 200px 800px 250px;
+            grid-template-columns: 1000px 300px;
             grid-gap: 5px;
             padding-left: 100px;
-            margin: auto;
+            margin-top: 20px;
             /* padding: 20px; */
 
         }
@@ -57,12 +57,6 @@
             grid-template-columns: 150px 150px;
             grid-gap: 20px;
         }
-
-        .navbar {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-        }
     </style>
 </head>
 
@@ -72,31 +66,10 @@
     </div>
     <hr>
     <div id="id">
-        <!-- menu -->
-        <div id="menus">
-            <div class="container-fluid">
-                <div class="row">
-                    <center>
-                        <nav class="navbar">
-                            <h1>MENU</h1>
-                            <ul class="nav navbar-nav" id="menu">
-                                @foreach($categories as $cate)
-                                <li class="nav-item">{{$cate->name}}</li>
-                                @endforeach
-                                <li class="dropdown"><a href="#"> <i class="fab fa-facebook-square"></i></a>
-                                </li>
-                                <li class="dropdown"><a href="#"><i class="fab fa-youtube"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </center>
-                </div>
-            </div>
-        </div>
-        <!-- slide bar -->
+        <!-- slide bar --> 
         <div class="container" style="padding: 10px;">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-10">
                     <div class="slidee">
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
@@ -176,7 +149,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <img class="group list-group-image" src="{{'storage/'.$product->image}}" alt="Card image cap">
+                            <img class="group list-group-image" src="{{'/storage/'.$product->image}}" alt="Card image cap" width="250px" height="200px">
                             <center>
                                 <div class="caption">
                                     <h5 class="card-title"> {{ $product->name}} </h5>
@@ -205,6 +178,14 @@
             @endforeach
         </div>
     </div>
+    <hr>
+    <div>
+    <center>
+        <div class="pagination">
+            <a style="margin: 7px;" href="/home/?page={{$page-1}}"><i style="color: black" class="fas fa-backward" title="Previous"></i></a>
+            <a style="margin: 7px;" href="/home/?page={{$page+1}}"><i style="color: black" class="fas fa-forward" title="Next"></i></a>
+        </div>
+    </center></div>
     <hr>
     <div>
         @include('partials\footer')
