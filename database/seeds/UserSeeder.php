@@ -19,22 +19,18 @@ class UserSeeder extends Seeder
             DB::table('users')->insert(
                 [ 
                     'name' => $faker->name,
-                    'birth'=>$faker->date('Y-m-d'),
                     'username'=> "admin",
                     'password'=>Hash::make("admin"),
                     'email' => $faker->unique()->email,
-                    'phone' => $faker->phoneNumber,
                     'role' => "admin"
                 ]
             );
             DB::table('users')->insert(
                 [ 
                     'name' => $faker->name,
-                    'birth'=>$faker->date('Y-m-d'),
                     'username'=> "user",
                     'password'=>Hash::make("user"),
                     'email' => $faker->unique()->email,
-                    'phone' => $faker->phoneNumber,
                     'role' => "user"
                 ]
             );

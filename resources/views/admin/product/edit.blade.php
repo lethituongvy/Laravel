@@ -31,13 +31,19 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-user"></i></span>
 					</div>
-					<input type="text" name="name" value="{{$edit->name}}">
+					<input id="name" value="{{$edit->name}}" type="name" class="form-control @error('name') is-invalid @enderror" name="name" required autocomplete="current-name">
+					@error('name')
+					<div class="alert alert-success">{{ $message }}</div>
+					@enderror
 				</div>
 				<div class="input-group form-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="far fa-image"></i></span>
 					</div>
-					<input type="file" name="image">
+					<input id="image" value="{{$edit->image}}" type="file" class="form-control @error('image') is-invalid @enderror" name="image" required autocomplete="current-image">
+					@error('image')
+					<div class="alert alert-success">{{ $message }}</div>
+					@enderror
 				</div>
 				<div class="form-group">
 					<label for="category" style="float: left; font-size: 18px;"> Chọn loại sản phẩm</label><br>
@@ -54,25 +60,37 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-usd-square"></i></span>
 					</div>
-					<input type="text" name="price" value="{{$edit->price}}">
+					<input id="price" value="{{$edit->price}}" type="price" class="form-control @error('price') is-invalid @enderror" name="price" required autocomplete="current-price">
+					@error('price')
+					<div class="alert alert-success">{{ $message }}</div>
+					@enderror
 				</div>
 				<div class="input-group form-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-usd-square"></i></span>
 					</div>
-					<input type="text" name="oldprice" value="{{$edit->oldprice}}">
+					<input id="oldprice" value="{{$edit->oldprice}}" type="oldprice" class="form-control @error('oldprice') is-invalid @enderror" name="oldprice" required autocomplete="current-oldprice">
+					@error('oldprice')
+					<div class="alert alert-success">{{ $message }}</div>
+					@enderror
 				</div>
 				<div class="input-group form-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="far fa-description"></i></span>
 					</div>
-					<input type="text" name="description" value="{{$edit->description}}">
+					<input id="description" value="{{$edit->description}}" type="decription" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="current-description">
+					@error('description')
+					<div class="alert alert-success">{{ $message }}</div>
+					@enderror
 				</div>
 				<div class="input-group form-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-usd-square"></i></span>
 					</div>
-					<input type="text" name="quantity" value="{{$edit->quantity}}">
+					<input id="quantity" value="{{$edit->quantity}}" type="quantity" class="form-control @error('quantity') is-invalid @enderror" name="quantity" required autocomplete="current-quantity">
+					@error('quantity')
+					<div class="alert alert-success">{{ $message }}</div>
+					@enderror
 				</div>
 
 				<div class="row align-items-center remember">

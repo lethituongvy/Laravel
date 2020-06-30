@@ -17,7 +17,10 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-                <input type="text" name="name" value="{{$edit->name}}">
+                <input id="name" value="{{$edit->name}}" type="name" class="form-control @error('name') is-invalid @enderror" name="name" required autocomplete="current-name">
+                @error('name')
+                <div class="alert alert-success">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group">
                 <input type="submit" value="Update" class="btn float-right login_btn">

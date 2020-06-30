@@ -107,7 +107,6 @@ class HomeController extends Controller
     function addCart($id)
     {
         $idUser = Auth::user()->id;
-
         $check = DB::table('carts')
             ->where('product_id', $id)
             ->where('user_id', $idUser)

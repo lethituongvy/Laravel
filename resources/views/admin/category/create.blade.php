@@ -13,10 +13,10 @@
             <div>
                 @csrf
                 <div class="form-group">
-                    <input class="form-control" name="name" placeholder="Nhập name" type="text">
-                    <!-- @error('name')
+                    <input id="name"  placeholder="Nhập name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    @error('name')
                     <div class="alert alert-success">{{ $message }}</div>
-                    @enderror -->
+                    @enderror
                 </div>
             </div>
             <div class="row">

@@ -7,6 +7,8 @@ use App\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+
+
 class ProductController extends Controller
 {
     function index()
@@ -68,19 +70,18 @@ class ProductController extends Controller
     function update(Request $request, $id)
     {
         $name = $request->name;
-        $file = $request->file('image')->store("public");
-        $cate = $request->category;
+        $image = $request->file('image')->store("public");
+        $category = $request->category;
         $price = $request->price;
-        $old = $request->oldprice;
+        $oldprice = $request->oldprice;
         $description = $request->description;
         $quantity = $request->quantity;
- 
         $animal = Product::find($id);
         $animal->name = $name;
-        $animal->image = $file;
-        $animal->category_id = $cate;
+        $animal->image = $image;
+        $animal->category_id = $category;
         $animal->price = $price;
-        $animal->oldprice = $old;
+        $animal->oldprice = $oldprice;
         $animal->description = $description;
         $animal->quantity = $quantity;
         $animal->save();

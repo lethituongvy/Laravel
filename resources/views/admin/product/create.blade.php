@@ -34,8 +34,10 @@
             <div>
                 @csrf
                 <div class="form-group">
-                    <input class="form-control" name="name" placeholder="Nhập name" type="text">
+                    <input id="name" placeholder="Nhập name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
                     @error('name')
+
                     <div class="alert alert-success">{{ $message }}</div>
                     @enderror
                 </div>
@@ -52,16 +54,44 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-6 col-md-6"> <input class="form-control" name="description" placeholder="Nhập Description" type="text"></div>
-                <div class="col-xs-6 col-md-6"> <input class="form-control" name="price" placeholder="Nhập Price" type="text"></div>
+                <div class="col-xs-6 col-md-6">
+                    <input id="description" placeholder="Nhập description" type="description" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus>
+                    @error('description')
+                    <div class="alert alert-success">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-xs-6 col-md-6">
+                    <input id="price" placeholder="Nhập price" type="price" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price" autofocus>
+
+                    @error('price')
+                    <div class="alert alert-success">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
             <div class="row">
-                <div class="col-xs-6 col-md-6"> <input class="form-control" name="oldprice" placeholder="Nhập Gia Cu" type="text"> </div>
-                <div class="col-xs-6 col-md-6"> <input type="file" name="image"></div>
+                <div class="col-xs-6 col-md-6">
+                    <input id="oldprice"  placeholder="Nhập oldprice"type="oldprice" class="form-control @error('oldprice') is-invalid @enderror" name="oldprice" value="{{ old('oldprice') }}" required autocomplete="oldprice" autofocus>
+                    @error('name')
+                    <div class="alert alert-success">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-xs-6 col-md-6">
+                    <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" required autocomplete="username" autofocus>
+                    @error('image')
+                    <div class="alert alert-success">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
             <div class="row">
                 <br>
-                <div class="col-xs-6 col-md-6"> <input class="form-control" name="quantity" placeholder="Nhập Quantity" type="text"> </div>
+                <div class="col-xs-6 col-md-6">
+                    <input id="quantity" placeholder="Nhập quantity "type="quantity" class="form-control @error('quantity') is-invalid @enderror" name="quantity" value="{{ old('quantity') }}" required autocomplete="quantity" autofocus>
+
+                    @error('quantity')
+
+                    <div class="alert alert-success">{{ $message }}</div>
+                    @enderror
+                </div>
                 <br>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Thêm sản phẩm</button>
             </div>
