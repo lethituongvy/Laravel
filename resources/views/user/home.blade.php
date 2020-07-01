@@ -153,7 +153,7 @@
                             <center>
                                 <div class="caption">
                                     <h5 class="card-title"> {{ $product->name}} </h5>
-                                    <p class="card-text"> <span>{{ $product->price }} $ </span> </p>
+                                    <p class="card-text"> <span>{{ number_format($product->price )}} $ </span> </p>
 
                                     <div class="row">
                                         <div class="col-xs-6  col-md-6">

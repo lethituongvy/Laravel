@@ -13,9 +13,12 @@ use App\Cart;
 
 class HomeController extends Controller
 {
-    // function index(){
-    //     return view("user.home");
-    // }
+    function productCate($id)
+    {
+        $cate = Category::all();
+        $procate = DB::table('products')->where('category_id', '=', $id)->get();
+        return view('user.category.displayCate', ["productcategory" => $procate, "categories" => $cate]);
+    }
 
     function logout()
     {
@@ -61,33 +64,26 @@ class HomeController extends Controller
         $animal->save();
         return redirect('/admin/users/index');
     }
-    // function index()
-    // {
-    //     $categories = Category::all();
-    //     $show = Product::all();
-    //     return view('user.home', ['categories' => $categories, 'products' => $show]);
-    // }
-   
     function index(Request $request)
     {
         $page = $request->page;
         $category = Category::all();
         $products = Product::all()->skip($page * 4)->take(4);
-        if($products->isEmpty()){ //Nếu photo lớn hơn số lượng trong database sẽ trả về 0
-                $products = Product::all()->take(4);
+        if ($products->isEmpty()) { //Nếu photo lớn hơn số lượng trong database sẽ trả về 0
+            $products = Product::all()->take(4);
             return redirect('home/?page=0');
-        }else if($page<0){
-            $totalPage = round(count(Product::all())/5)-1;
-            return redirect('home/?page='.$totalPage);
+        } else if ($page < 0) {
+            $totalPage = round(count(Product::all()) / 5) - 1;
+            return redirect('home/?page=' . $totalPage);
         }
 
-        return view('user.home', ["products" => $products, "categories"=>$category, "page" => $page]);
-        
+        return view('user.home', ["products" => $products, "categories" => $category, "page" => $page]);
     }
     function details($id)
     {
+        $cate = Category::all();
         $detail = DB::table('products')->find($id);
-        return view("user.animals.show", ['show' => $detail]);
+        return view("user.animals.show", ['show' => $detail, 'categories' => $cate]);
     }
     function indexCart()
     {
@@ -149,5 +145,59 @@ class HomeController extends Controller
         $txt = $request->input('txtSearch');
         $search = DB::table('products')->where('name', 'LIKE', '%' . $txt . '%')->get();
         return view('user.search', ['research' => $search]);
+    }
+
+    // function pay()
+    // {
+    //     $idUser = Auth::user()->id;
+    //     $cartdata = DB::table('carts')
+    //         ->where('user_id', '=', $idUser)
+    //         ->join('users', 'users.id', '=', 'carts.user_id')
+    //         ->join('products', 'products.id', '=', 'carts.product_id')
+    //         ->select('carts.id', 'products.name', 'products.price', 'products.image', 'carts.quantity')
+    //         ->get();
+
+    //     return view('user.pay', ["carts" => $cartdata]);
+    // }
+    function pay(){
+        $idUser = Auth::user()->id;
+        $carts=DB::table('carts')->where("user_id",$idUser)->get();
+        foreach ($carts as $cart) {
+           $infoProduct= DB::table('products')->where("id", $cart->product_id)->first();
+     
+           $cart->infoProduct=$infoProduct;
+       }
+       return view("user.pay",['carts'=> $carts]);
+     }
+
+    function order(Request $request)
+    {
+        $id_user = Auth::user()->id;
+        $name =  $request->name;
+        $phone = $request->phone;
+        $address = $request->address;
+
+        $carts=DB::table('carts')->where("user_id",$id_user )->get();
+        foreach ($carts as $cart) {
+           $infoProduct= DB::table('products')->where("id", $cart->product_id)->first();
+           $cart->infoProduct=$infoProduct;
+           $array[]= array(
+             "name" =>$cart->infoProduct->name,
+             "image" =>$cart->infoProduct->image,
+             "quantity" =>$cart->quantity,
+             "price" =>$cart->infoProduct->price
+         );
+       }
+        $detail = json_encode($array);
+        echo $detail;
+
+        $user_id = Auth::user()->id;
+        DB::table('order')->insert([
+            "user_id" => $user_id,
+            "name" => $name,
+            "phone" => $phone,
+            "address" => $address,
+            "detail" => $detail,
+        ]);
     }
 }

@@ -13,8 +13,13 @@ class CreateTableOrder extends Migration
      */
     public function up()
     {
-        Schema::create('table_order', function (Blueprint $table) {
+        Schema::create('order', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('address');
+            $table->longText('detail');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateTableOrder extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_order');
+        Schema::dropIfExists('order');
     }
 }

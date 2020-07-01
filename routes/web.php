@@ -78,13 +78,13 @@ Route::get('/user/cart/{id}/crease',"User\HomeController@crease");
 Route::delete('/user/cart/{id}',"User\HomeController@delete");
 
 Route::get('/user/search',"User\HomeController@search");
+ 
+Route::get('/home/productOfCate/{id}', 'User\HomeController@productCate');
 
+Route::get('/user/pay',"User\HomeController@pay");
+Route::post('/user/order',"User\HomeController@order");
 
-// Route::get('/home', 'User\HomeController@index')->name('home');
 });
-//  Route::get('/home/productOfCate/{id}', 'User\HomeController@productCate');
-
-//  Route::get('/header','Admin\ProductController@header');
 
 
 

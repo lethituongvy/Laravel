@@ -12,6 +12,7 @@
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
     <style>
         #class {
             display: grid;
@@ -85,42 +86,24 @@
 
         .navbar {
             display: flex;
-            width: 100%;
+            width: 90%;
             justify-content: space-between;
             margin-top: auto;
         }
 
-        .menu li:hover .sub-menu {
-            z-index: 1;
-            opacity: 1;
+        .container {
+            margin-top: auto;
+
         }
 
-        .sub-menu {
-            width: 160%;
-            padding: 5px 0px;
-            position: absolute;
-            top: 100%;
-            left: 0px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity linear 0.15s;
-            box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
-            background: #2e2728;
+        .dropdown {
+            margin-top: auto;
+            margin-left: 20px;
         }
 
-        .sub-menu li {
-            display: block;
-            font-size: 16px;
-        }
+        #menud {
 
-        .sub-menu li a {
-            padding: 10px 30px;
-            display: block;
-        }
-
-        .sub-menu li a:hover,
-        .sub-menu .current-item a {
-            background: #3e3436;
+            border: 1px solid red;
         }
     </style>
 
@@ -171,12 +154,29 @@
                 <center>
 
                     <nav class="navbar">
-                        <h4>TRANG CHỦ</h4>
                         <div>
-                            <h4>DANH MỤC SẢN PHẨM</h4>
-                            
+                            <h4>TRANG CHỦ</h4>
                         </div>
-                        <h4>Liên hệ</h4>
+                        <div class="container mt-3">
+                            <div class="btn-group">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                                    Danh Mục Sản Phẩm
+                                </button>
+                                <div class="dropdown-menu">
+                                    @foreach($categories as $cate)
+                                    <a href="">
+                                        <li class="nav-item"><a href="/home/productOfCate/{{$cate->id}}">{{$cate->name}}</a></li>
+                                    </a>
+                                    @endforeach
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+                            <h4>Liên hệ</h4>
+                        </div>
+
+
                     </nav>
                 </center>
             </div>

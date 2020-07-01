@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="pull-right" style="margin: 10px">
-                    <a href="" class="btn btn-success pull-right">Checkout</a>
+                    <a href="/user/pay" class="btn btn-success pull-right">Checkout</a>
                     <div class="pull-right" style="margin: 5px">
                         <?php
                         $total = 0;

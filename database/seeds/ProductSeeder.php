@@ -12,10 +12,10 @@ class ProductSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i = 0; $i < 10; $i++) {
+        
             DB::table('products')->insert(
                 [
-                    'name' => $faker->name,
+                    'name' => 'Chó cục bông',
                     'image' => 'public/abc.jpeg',
                     'category_id' => $faker->numberBetween(1, 5),
                     'price' => $faker->numberBetween(150000, 2000000),
@@ -24,6 +24,49 @@ class ProductSeeder extends Seeder
                     'quantity'=>100
                 ]
             );
-        }
+            DB::table('products')->insert(
+                [
+                    'name' => 'Chó Alaka',
+                    'image' => 'public/1.jpeg',
+                    'category_id' => $faker->numberBetween(1, 5),
+                    'price' => $faker->numberBetween(150000, 2000000),
+                    'oldprice'=>$faker->numberBetween(200000,3000000),
+                    'description'=>$faker->sentence(20),
+                    'quantity'=>100
+                ]
+            );
+            DB::table('products')->insert(
+                [
+                    'name' => 'Chó Nâu Trắng',
+                    'image' => 'public/nautrang.jpeg',
+                    'category_id' => $faker->numberBetween(1, 5),
+                    'price' => $faker->numberBetween(150000, 2000000),
+                    'oldprice'=>$faker->numberBetween(200000,3000000),
+                    'description'=>$faker->sentence(20),
+                    'quantity'=>100
+                ]
+            );
+            DB::table('products')->insert(
+                [
+                    'name' => 'Chó Ngố',
+                    'image' => 'public/ngo.jpeg',
+                    'category_id' => $faker->numberBetween(1, 5),
+                    'price' => $faker->numberBetween(150000, 2000000),
+                    'oldprice'=>$faker->numberBetween(200000,3000000),
+                    'description'=>$faker->sentence(20),
+                    'quantity'=>100
+                ]
+            );
+            DB::table('products')->insert(
+                [
+                    'name' => 'Chó nhin mặt Ngốc',
+                    'image' => 'public/ngox.jpeg',
+                    'category_id' => $faker->numberBetween(1, 5),
+                    'price' => $faker->numberBetween(150000, 2000000),
+                    'oldprice'=>$faker->numberBetween(200000,3000000),
+                    'description'=>$faker->sentence(20),
+                    'quantity'=>100
+                ]
+            );
     }
 }

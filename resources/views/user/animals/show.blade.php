@@ -35,7 +35,7 @@
                 <h5 class="card-title">Tên: {{$show->name}}</h5>
                 <hr>
 
-                <h5 class="card-title">Giá: {{$show->price}}$</h5>
+                <h5 class="card-title">Giá: {{number_format($show->price)}}$</h5>
                 <h5 class="card-title">Mô tả:{{ $show->description}} </h5>
                 <div>
                     <div class="col-xs-12 col-md-6">
