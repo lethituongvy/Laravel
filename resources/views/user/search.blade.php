@@ -35,7 +35,6 @@
                                 <div class="caption">
                                     <h5 class="card-title"> {{ $search->name}} </h5>
                                     <p class="card-text"> <span>{{ $search->price }} $ </span> </p>
-
                                     <div class="row">
                                         <div class="col-xs-6  col-md-6">
                                             <form action="/user/cart/{{$search->id}}">

@@ -28,23 +28,19 @@
         <table border="1px;" height="10px;">
             <tr>
                 <th>Name</th>
-                <th>Name</th>
                 <th>User</th>
                 <th>Password</th>
-                <th>Name</th>
-                <th>Name</th>
-                <th>Name</th>
+                <th>email</th>
+                <th>role</th>
                 <th>DELETE</th>
                 <th>EDIT</th>
             </tr>
             @foreach($animals as $datas)
             <tr>
                 <td>{{$datas -> name}}</td>
-                <td>{{$datas -> birth}}</td>
                 <td>{{$datas -> username}}</td>
                 <td>{{$datas -> password}}</td>
                 <td>{{$datas -> email}}</td>
-                <td>{{$datas -> phone}}</td>
                 <td>{{$datas -> role}}</td>
                 <td>
                     <form action="{{'/admin/users/'.$datas->id}}" method="POST">

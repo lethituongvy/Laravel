@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style type="text/css">
-        html,body{
+        html,
+        body {
             background-color: black;
         }
+
         .container {
             padding: 2px;
         }
@@ -75,9 +77,10 @@
             grid-template-rows: 10px 20px;
             margin: auto;
             padding: 20px;
-            width:100%
+            width: 100%
         }
-        footer{
+
+        footer {
             background-color: black;
             color: white;
             width: 100%;
@@ -125,19 +128,23 @@
                 <ul><img src="https://images.dmca.com/Badges/_dmca_premi_badge_7.png?ID=1bf3f65e-4ac8-457e-8400-9d299263f727" alt=""></ul>
             </div>
             <div>
-                <h3>
-                    <ul>HỖ TRỢ KHÁCH HÀNG</ul>
-                </h3>
-                <ul>Hướng dẫn mua hàng</ul>
-                <ul>Điều khoản và điều kiện</ul>
-                <ul>Chính sách bảo mật</ul>
-                <ul>Chính sách thanh toán</ul>
-                <ul>Chính sách giao hàng</ul>
-                <ul>Chính sách đổi trả</ul>
-                <ul>Hướng dẫn gửi trả hàng</ul>
-                <ul>Chính sách bảo hành</ul>
-                <ul>Mua trả góp</ul>
-                <ul>Chất lượng dịch vụ</ul>
+                <center>
+                    <h3>
+                        <ul>HỖ TRỢ KHÁCH HÀNG</ul>
+                    </h3>
+                </center>
+                <center>
+                    <ul>Hướng dẫn mua hàng</ul>
+                    <ul>Điều khoản và điều kiện</ul>
+                    <ul>Chính sách bảo mật</ul>
+                    <ul>Chính sách thanh toán</ul>
+                    <ul>Chính sách giao hàng</ul>
+                    <ul>Chính sách đổi trả</ul>
+                    <ul>Hướng dẫn gửi trả hàng</ul>
+                    <ul>Chính sách bảo hành</ul>
+                    <ul>Mua trả góp</ul>
+                    <ul>Chất lượng dịch vụ</ul>
+                </center>
             </div>
             <div>
                 <h3>

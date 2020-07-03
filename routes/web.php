@@ -36,7 +36,7 @@ Route::get('/admin/dashboard',"Admin\ProductController@index")->name('admin.dash
 Route::get('/admin/users/index',"Admin\ProductController@indexU")->name('admin.users.indexU');
 
 Route::delete('/admin/users/{id}',"User\HomeController@destroy");
- 
+
 Route::get('/users/{id}/edit',"User\HomeController@edit");
 Route::PATCH('/users/{id}',"User\HomeController@update");
 

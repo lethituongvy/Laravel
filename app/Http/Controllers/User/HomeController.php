@@ -141,24 +141,12 @@ class HomeController extends Controller
         return redirect('user/cart');
     }
     function search(Request $request)
-    {
+    {   
+        $cate = Category::all();
         $txt = $request->input('txtSearch');
         $search = DB::table('products')->where('name', 'LIKE', '%' . $txt . '%')->get();
-        return view('user.search', ['research' => $search]);
+        return view('user.search', ['research' => $search,'categories'=>$cate]);
     }
-
-    // function pay()
-    // {
-    //     $idUser = Auth::user()->id;
-    //     $cartdata = DB::table('carts')
-    //         ->where('user_id', '=', $idUser)
-    //         ->join('users', 'users.id', '=', 'carts.user_id')
-    //         ->join('products', 'products.id', '=', 'carts.product_id')
-    //         ->select('carts.id', 'products.name', 'products.price', 'products.image', 'carts.quantity')
-    //         ->get();
-
-    //     return view('user.pay', ["carts" => $cartdata]);
-    // }
     function pay(){
         $idUser = Auth::user()->id;
         $carts=DB::table('carts')->where("user_id",$idUser)->get();
@@ -199,5 +187,7 @@ class HomeController extends Controller
             "address" => $address,
             "detail" => $detail,
         ]);
+        DB::table('carts')->where('user_id', '=', $id_user)->delete();
+        return redirect("/home");
     }
 }

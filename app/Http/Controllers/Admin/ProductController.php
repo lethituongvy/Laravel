@@ -56,11 +56,12 @@ class ProductController extends Controller
         $animal->save();
         return redirect('/admin/product/index');
     }
-    function destroy($id)
+function destroy($id)
     {
         Product::find($id)->delete();
         return redirect('/admin/product/index');
     }
+   
     function edit($id)
     {
         $product = Product::find($id);
